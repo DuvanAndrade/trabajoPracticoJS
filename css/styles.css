@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*hace que el border, el padding no afecte el ancho de los elementos*/
+  }
+.nombre{
+    background: linear-gradient(to right, #81968d, #056943);
+    text-align: center;
+}
+.nombre h1, h2{
+    font-size: 4rem;
+}
+.nombre p{
+    font-size: 2rem;
+}
