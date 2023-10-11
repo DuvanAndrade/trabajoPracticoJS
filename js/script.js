@@ -5,65 +5,66 @@ let stockPulseras = 10;
 let stockCollares = 10;
 let cantDeseada;
 let opcionDeCompra;
-
+let idIngresado;
+const valorEnvio = 1000;
 
 //CREO ARRAY Y OBJETO DE PRODUCTOS
 
 const productos = [
     //COLLARES
     {
-        id: "collar-01",
+        id: 1,
         titulo: "Collar Cruz de Plata",
         imagen: "../assets/img/collares/collarPlataCruz.jpg",
         categoria: {
-            nombre: "Collares",
+            nombre: "collares",
             id: "collares"
         },
         precio: 2500
     },
     {
-        id: "collar-02",
+        id: 2,
         titulo: "Collar Doble Aro",
         imagen: "../assets/img/collares/collarDobleAro.jpg",
         categoria: {
-            nombre: "Collares",
+            nombre: "collares",
             id: "collares"
         },
         precio: 2500
     },
     {
-        id: "collar-03",
+        id: 3,
         titulo: "Collar Perla de Oro",
         imagen: "../assets/img/collares/collarOroPerla.jpg",
         categoria: {
-            nombre: "Collares",
+            nombre: "collares",
             id: "collares"
         },
         precio: 2500
     },
     {
-        id: "collar-04",
+        id: 4,
         titulo: "Collar Perlas",
         imagen: "../assets/img/collares/collarPerlas.jpg",
         categoria: {
-            nombre: "Collares",
+            nombre: "collares",
             id: "collares"
         },
         precio: 2500
     },
     {
-        id: "collar-05",
+        id: 5,
         titulo: "Collar Triple de Plata",
         imagen: "../assets/img/collares/collarPlatatriple.jpg",
         categoria: {
-            nombre: "Collares",
+            nombre: "collares",
             id: "collares"
         },
         precio: 2500
     },
     //PPULSERAS
     {
-        id: "pulsera-01",
+        id: 6,
         titulo: "Pulsera Galapagos de Plata",
         imagen: "../assets/img/pulseras/pulseraGalapagosPlata.jpeg",
         categoria: {
@@ -73,7 +74,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "pulsera-02",
+        id: 7,
         titulo: "Pulsera Oslo",
         imagen: "../assets/img/pulseras/pulseraOslo.jpeg",
         categoria: {
@@ -83,7 +84,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "pulsera-03",
+        id: 8,
         titulo: "Pulsera Soho de Plata",
         imagen: "../assets/img/pulseras/pulseraSohoPlata.jpeg",
         categoria: {
@@ -93,7 +94,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "pulsera-01",
+        id: 9,
         titulo: "Pulsera Tarragona",
         imagen: "../assets/img/pulseras/pulseraTarragona.jpeg",
         categoria: {
@@ -104,7 +105,7 @@ const productos = [
     },
     //ANILLOS
     {
-        id: "anillo-01",
+        id: 10,
         titulo: "Anillo Banda Miebius",
         imagen: "../assets/img/anillos/anilloBandaMiebius.jpg",
         categoria: {
@@ -114,7 +115,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "anillo-02",
+        id: 11,
         titulo: "Anillo Corona Rosa",
         imagen: "../assets/img/anillos/anilloCoronaRosa.jpg",
         categoria: {
@@ -124,7 +125,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "anillo-03",
+        id: 12,
         titulo: "Anillo Hoja",
         imagen: "../assets/img/anillos/anilloHoja.jpg",
         categoria: {
@@ -134,7 +135,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "anillo-04",
+        id: 13,
         titulo: "Anillo Malaga",
         imagen: "../assets/img/anillos/anilloMalaga.jpeg",
         categoria: {
@@ -144,7 +145,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "anillo-05",
+        id: 14,
         titulo: "Anillo Sydeny",
         imagen: "../assets/img/anillos/anilloSydney.jpeg",
         categoria: {
@@ -154,7 +155,7 @@ const productos = [
         precio: 2500
     },
     {
-        id: "anillo-06",
+        id: 15,
         titulo: "Anillo Sydeny de Plata",
         imagen: "../assets/img/anillos/anilloSydneyPlata.jpeg",
         categoria: {
@@ -167,69 +168,55 @@ const productos = [
 //MOSTRAR PRODUCTOS DE LA TIENDA, ESTO LO VE EL USUARIO SE O NO CLIENTE
 mostrarProductos();
 
-//FILTRAR ELEMENTOS POR CATEGORIA
 
-const anillos = productos.filter((anillo => anillo.categoria.nombre.includes === 'anillos'));
-const collares = productos.filter((collar => collar.categoria.nombre === 'collares'));
-const pulseras = productos.filter((pulsera => pulsera.categoria.nombre === 'pulseras'));
-
-//MOTRAMOS LOS NUEVOS ARRAYS QUE SE HAN FILTRADO POR CATEGORIA
-//console.log(anillos);
-//console.log(anillos);
-//console.log(anillos);
 
 //PIDO INGRESO DE USUARIO
 let clienteIngresado = prompt('Ingrese Usuario:');
 let passwordIngresada = prompt('Ingrese Contraseña:');
+//INICIALIZO EL CARRITO DE COMPRAS
+const carrito = [];
 
-/* validar que el usuario creado de ejemplo sea el mismo ingresado por consola  */
+/* VALIDO QUE EL USUARIO SEA CORRECTO. DE SER ASI EJECUTO LA OPCION DE MENU Y COMPRAR DE LOS CONTRARIO MSN DE USUARIO INCORRECTO  */
  function validarUsuario(){
      if (clienteIngresado === nombreCliente && passwordIngresada === passwordCliente){
          alert('Bienvenido ' + clienteIngresado);
         
          do {
-            
+            /*EL USUARIO ELIGE UNA OPCION DE PRODCUTOS*/
             opcionDeCompra = parseInt(prompt('Igrese una de las siguientes opciones: \n1: Anillos. \n2: Collares. \n3: Pulseras  \n4: para salir'));
             switch (opcionDeCompra) {
                 case 1:
-                cantDeseada = parseInt(prompt('Ingrese la cantidad deseada de anillos que deseas comprar'));
-                /*VERIFICO QUE INGRESE UN NUMERO MAYOR A CERO DE PRODCUTOS */
-                while(cantDeseada <= 0){
-                    alert('Ingrese por lo menos un producto');
-                    cantDeseada = parseInt(prompt('Ingrese la cantidad deseada de anillos a comprar'));      
-                }
-                /* LLAMO LA FUNCION VALIDAD STOCK QUE VERIFICA SI LA CAIDAD QUE SE QUIERE AGREGAR ES MENOR AL STOCK, SI NO PIDE INGRESAR UNA CANTIDAD MENOR Y ACTUALIZA 
-                EL STOCK*/
-                validarStock(cantDeseada, stockAnillos);
-                stockAnillos -= cantDeseada;
-                console.log(stockAnillos)
-                    
+                    //FILTRO EL ARRAY POR ANILLOS YA QUE ES LA OPCION 1 DEL MENU
+                    const anillos = productos.filter((producto) => producto.categoria.nombre.includes("anillos"));
+                    //INVOCO FUNCION mostrarPorCategoria()               
+                    mostrarPorCategoria(anillos);
+                    //PIDO AL USUARIO QUE INGRESE EL ID DEL PRODUCTO DESEADO
+                    idIngresado= parseInt(prompt('ingrese id del producto deseado'));
+                    //CON EL ID PEDIDO INVOCO A LA FUNCION agregarAlCarrito QUE COMPARA IDS Y SI COINCIDEN AGREGA AL CARRITO
+                    agregarAlCarrito(idIngresado, anillos, carrito);
+                              
                     break;
                 case 2:
-                cantDeseada = parseInt(prompt('Ingrese la cantidad deseada de pulseras que deseas comprar'));
-                /*VERIFICO QUE INGRESE UN NUMERO MAYOR A CERO DE PRODCUTOS */
-                while(cantDeseada <= 0){
-                    alert('Ingrese por lo menos un producto');
-                    cantDeseada = parseInt(prompt('Ingrese la cantidad deseada de pulseras a comprar'));      
-                }
-                /* LLAMO LA FUNCION VALIDAD STOCK QUE VERIFICA SI LA CAIDAD QUE SE QUIERE AGREGAR ES MENOR AL STOCK, SI NO PIDE INGRESAR UNA CANTIDAD MENOR Y ACTUALIZA 
-                EL STOCK*/
-                validarStock(cantDeseada, stockPulseras);
-                stockPulseras -= cantDeseada;
-                console.log(stockPulseras)
+                    //FILTRO EL ARRAY POR ANILLOS YA QUE ES LA OPCION 1 DEL MENU
+                    const collares = productos.filter((producto) => producto.categoria.nombre.includes("collares"));
+                    //INVOCO FUNCION mostrarPorCategoria()               
+                    mostrarPorCategoria(collares);
+                    //PIDO AL USUARIO QUE INGRESE EL ID DEL PRODUCTO DESEADO
+                    idIngresado= parseInt(prompt('ingrese id del producto deseado'));
+                    //CON EL ID PEDIDO INVOCO A LA FUNCION agregarAlCarrito QUE COMPARA IDS Y SI COINCIDEN AGREGA AL CARRITO
+                    agregarAlCarrito(idIngresado, collares, carrito);
+                
                     break;
                 case 3:
-                cantDeseada = parseInt(prompt('Ingrese la cantidad deseada de collares que deseas comprar'));
-                    /*VERIFICO QUE INGRESE UN NUMERO MAYOR A CERO DE PRODCUTOS */
-                while(cantDeseada <= 0){
-                    alert('Ingrese por lo menos un producto');
-                    cantDeseada = parseInt(prompt('Ingrese la cantidad deseada de collares a comprar'));      
-                }
-                    /* LLAMO LA FUNCION VALIDAR STOCK QUE VERIFICA SI LA CANTIDAD QUE SE QUIERE AGREGAR ES MENOR AL STOCK, SI NO PIDE INGRESAR UNA CANTIDAD MENOR Y ACTUALIZA 
-                    EL STOCK*/
-                validarStock(cantDeseada, stockCollares);
-                stockCollares -= cantDeseada;
-                console.log(stockCollares)      
+                    //FILTRO EL ARRAY POR ANILLOS YA QUE ES LA OPCION 1 DEL MENU
+                    const pulseras = productos.filter((producto) => producto.categoria.nombre.includes("pulseras"));
+                    //INVOCO FUNCION mostrarPorCategoria()               
+                    mostrarPorCategoria(pulseras);
+                    //PIDO AL USUARIO QUE INGRESE EL ID DEL PRODUCTO DESEADO
+                    idIngresado= parseInt(prompt('ingrese id del producto deseado'));
+                    //CON EL ID PEDIDO INVOCO A LA FUNCION agregarAlCarrito QUE COMPARA IDS Y SI COINCIDEN AGREGA AL CARRITO
+                    agregarAlCarrito(idIngresado, pulseras, carrito);
+                   
                     break;
                 case 4:
                     alert('Vuelva pronto');
@@ -240,17 +227,79 @@ let passwordIngresada = prompt('Ingrese Contraseña:');
             }
         
         } while (opcionDeCompra !== 4 );
-
+        mostrarCarrito(carrito);
+        valorTotalCarrito();
      }else{
          alert('Nombre de usuario o contraseña incorrectos');
      }
-
+     
  }
+ 
  validarUsuario();
+ 
+ //CREO FUNCION PARA MOSTAR LOS PRODUCTOS POR CATEGORIA
+function mostrarPorCategoria(arrayPorCategoria){
+    let mensaje = "Nuestros Productos\n";
+    arrayPorCategoria.map((producto) => {
+        mensaje += (`${producto.id}: ${producto.titulo}  $${producto.precio} \n -------------------------------- \n`);
+    });
+    alert(mensaje);
+}
+//FUNCION PARA AGREGAR PRODUCTO AL CARRITO, COMPARA IDS Y DE SER IGUALES AGREGA EL PRODUCTO AL CARRITO
+function agregarAlCarrito(idIngresadoPorUsuario, arrayPorCategoria, carrito){
+    let productoSeleccionado = arrayPorCategoria.find(function(producto) {
+        return producto.id === idIngresadoPorUsuario;
+      });
+      if(productoSeleccionado){
+        carrito.push(productoSeleccionado);
+        alert("Producto agregado al carrito exitosamente")
+      }else {
+        alert("Producto inexistente");
+      }          
+}
 
 
 
-function validarStock(cantidadDeseada, stockProductos){
+//FUNCION PARA MOSTRAR PRODUCTOS DISPONIBLES
+
+function mostrarProductos(){
+    let mensaje = "Nuestros Productos\n";
+    productos.map((producto) => {
+        mensaje += (`${producto.id}: ${producto.titulo}  $${producto.precio} \n -------------------------------- \n`);
+    });
+    alert(mensaje);
+}
+
+//CALCULO DEL VALOR TOTAL DEL CARRITO
+function valorTotalCarrito(){
+   alert(`El total de la compra es: $` + carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0) + 
+   ' más el costo de envio:' + valorEnvio);
+   
+}
+
+var carritoDeCompras = [
+    { id: 1, nombre: "Anillo de plata", precio: 20.0 },
+    { id: 2, nombre: "Pulsera de cuero", precio: 15.0 },
+    { id: 3, nombre: "Collar de perlas", precio: 30.0 }
+  ];
+  
+  // Función para mostrar el contenido del carrito en un alert
+  function mostrarCarrito(carrito) {
+    let mensaje = "Tu carrito de compras:\n";
+  
+    for (let i = 0; i < carrito.length; i++) {
+      mensaje += "Producto: " + carrito[i].titulo + " - Precio: $" + carrito[i].precio + "\n";
+    }
+  
+    alert(mensaje);
+  }
+  
+ 
+ 
+  
+
+
+/* function validarStock(cantidadDeseada, stockProductos){
     if(cantidadDeseada > stockProductos){
         alert('Lo sentimos. La cantidad deseada supera la exitente')
         do {
@@ -261,55 +310,6 @@ function validarStock(cantidadDeseada, stockProductos){
         alert('Tus productos fueron agregados exitosamente')
         
     }
-}
-
-
-//FUNCION PARA MOSTRAR PRODUCTOS DISPONIBLES
-
-function mostrarProductos(){
-    let mensaje = "Nuestros Productos\n";
-    productos.map((producto) => {
-        mensaje += (`\n${producto.id}: ${producto.titulo}\n $${producto.precio} \n -------------------------------- \n`);
-    });
-    alert(mensaje);
-}
-
-
-
-//CREAMOS FUNCION AGREGAR PRODUCTO QUE RECIBE UN CARRITO Y UN ID DEL PRODUCTO AGREGANDO AL CARRITO
-function agregarProductoAlCarrito(carrito, idProducto){
-    const producto = productos.find((product) => product.id === idProducto);
-    if(producto){
-        carrito.push(producto);
-        console.log(`Se ha agregado ${producto.titulo} al carrito.`);
-    }else {
-        console.log("El producto no existe.");
-      }
-    
-}  
-
-//CREACION DEL CARRITO DE COMPRAS VACIO PARA LUEGO IR AGREGANDO PRODUCTOS
-let carritoDeCompras = [];
-  
-//AGRAGAMOS LOS PRODUCTOS AL CARRITO
-agregarProductoAlCarrito(carritoDeCompras, 'collar-01'); // Agregar un collar
-agregarProductoAlCarrito(carritoDeCompras, 'collar-02'); // Agregar una pulsera
-agregarProductoAlCarrito(carritoDeCompras, 'collar-03'); // Intentar agregar un producto inexistente
-  
-// SE MUESTRA LOS PRODUCTOS AGRAGADOS AL CARRITO
-console.log("Contenido del carrito:", carritoDeCompras);
-  
-  // Calculamos el total de la compra
-  //const totalComprass = calcularTotal(carritoDeCompras);
- // console.log(`El total de la compra es: $${totalCompra}`);
-  
-//CALCULO DEL VALOR TOTAL DEL CARRITO
-const valorEnvio = 1000;
-function valorTotalCarrito(){
-   console.log(`El total de la compra es: $` + carritoDeCompras.reduce((acumulador, producto) => acumulador + (producto.precio), 0) + 
-   ' más el costo de envio:' + valorEnvio);
-   
-}
-valorTotalCarrito();
+} */
 
 
