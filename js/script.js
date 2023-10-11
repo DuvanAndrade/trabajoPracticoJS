@@ -277,13 +277,9 @@ function valorTotalCarrito(){
    
 }
 
-var carritoDeCompras = [
-    { id: 1, nombre: "Anillo de plata", precio: 20.0 },
-    { id: 2, nombre: "Pulsera de cuero", precio: 15.0 },
-    { id: 3, nombre: "Collar de perlas", precio: 30.0 }
-  ];
+
   
-  // Función para mostrar el contenido del carrito en un alert
+//FUNCION PARA MOSTRAR LOS PRODCUTOS DEL CARRITO
   function mostrarCarrito(carrito) {
     let mensaje = "Tu carrito de compras:\n";
   
