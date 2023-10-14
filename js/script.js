@@ -183,7 +183,7 @@ const carrito = [];
         
          do {
             /*EL USUARIO ELIGE UNA OPCION DE PRODCUTOS*/
-            opcionDeCompra = parseInt(prompt('Igrese una de las siguientes opciones: \n1: Anillos. \n2: Collares. \n3: Pulseras  \n4: para salir'));
+            opcionDeCompra = parseInt(prompt('Ingrese una de las siguientes opciones: \n1: Anillos. \n2: Collares. \n3: Pulseras  \n4: para salir'));
             switch (opcionDeCompra) {
                 case 1:
                     //FILTRO EL ARRAY POR ANILLOS YA QUE ES LA OPCION 1 DEL MENU

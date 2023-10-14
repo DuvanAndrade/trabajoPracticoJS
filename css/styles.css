@@ -4,13 +4,112 @@
     box-sizing: border-box;
     /*hace que el border, el padding no afecte el ancho de los elementos*/
   }
-.nombre{
-    background: linear-gradient(to right, #81968d, #056943);
+
+:root{
+    --coloBase: #F6EDF9;
+    --colorTitulo: #694A69;
+    --fuenteHeading: 'Playfair Display', serif;
+    --fuenteParrafos: 'Playfair Display', serif;
+                    
+}
+
+/*HEADER*/
+.contenedor_encabezado{
+    background-color: var(--coloBase);
+    padding-top: 1rem;
+}
+.encabezado {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    
+}
+.buscador{
+    background-color: var(--coloBase);
+    border:none;
+    border-bottom: 1px solid var(--colorTitulo);
+}
+.titulo h1{
+    color: var(--colorTitulo);
+    font-family: var(--fuenteHeading);
+    font-size: 4rem;  
+    text-shadow: 2px 2px 3px #91878F;
+}
+.redes{
+    display: flex;
+    gap: 2rem;
+    padding-right: 2rem;
+}
+
+.navbar_enlaces{
+    display: flex;
+    justify-content: center;
+}
+.list {
+    list-style-type: none;
+    padding: 2rem;
+   
+    
+}
+
+.list a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-family: var(--fuenteParrafos);
+}
+
+/*FOOTER*/
+.footer{
+    background-color: var(--coloBase);
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
     text-align: center;
 }
-.nombre h1, h2{
-    font-size: 4rem;
+.list_footer{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
 }
-.nombre p{
+.list_footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-family: var(--fuenteParrafos);
+}
+.btn_enviar{
+    background-color: var(--coloBase);
+    padding: 5%;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    border-radius: 5%;
+}
+.btn_enviar:hover{
+    background-color: var(--colorTitulo);
+    color: white;
+    
+}
+.input_footer{
+    background-color: var(--coloBase);
+    border:none;
+    border-bottom: 2px solid var(--colorTitulo);
+    padding: 1rem;
+}
+.list_footer label{
+    text-align: start;
+}
+.navbar_footer_enlaces{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.formulario_footer{
+    display: grid;
+    column-gap: 3rem;
+}
+.titulo_email{
     font-size: 2rem;
+    color: var(--colorTitulo);
 }
