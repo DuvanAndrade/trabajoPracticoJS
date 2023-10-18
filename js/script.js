@@ -310,7 +310,10 @@ const productos = [
     }
 } */
 //INGRESO DE LOS PRODUCTOS
-const contenedor = document.querySelector('.box_productos');
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    const contenedor = document.querySelector('.box_productos');
 
 for (const producto of productos) {
     contenedor.innerHTML += `
@@ -318,15 +321,17 @@ for (const producto of productos) {
     <article  id=${producto.id} class="box">
         <img src=${producto.imagen} alt="imagen sobre ${producto.titulo}">
     </article>
-    <div class="descripcion_producto">
+        <div class="descripcion_producto">
             <h2>${producto.titulo}</h2>
             <p><i>$${producto.precio}</i></p>
         </div>
         <div class="btn">
-        <a class="agregar-button" data-id=${producto.id}> <span>Agregar</span> </a>
-    </div>
-        </section>`;
+            <a class="agregar-button" data-id=${producto.id}> <span>Agregar</span> </a>
+        </div>
+    </section>`;
 }
+    
+  });
 
 
 // Crear un nuevo objeto de imagen
