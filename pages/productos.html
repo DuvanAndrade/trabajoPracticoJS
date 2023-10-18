@@ -22,9 +22,10 @@
     />
     
     <!--  enlazando css-->
-    <link rel="stylesheet" href="css/styles.css">
-    <!--  enlazando js-->
-   
+    <link rel="stylesheet" href="../css/styles.css">
+     <!--  enlazando js-->
+     
+   <script defer src="../js/script.js"></script>
   </head>
   <body>
     <header>
@@ -64,16 +65,16 @@
             <div >
                 <ul class="navbar_enlaces">
                     <li class="list">
-                        <a href="index.html">Inicio</a>
+                        <a href="../index.html">Inicio</a>
                     </li>
                     <li class="list">
-                        <a href="pages/productos.html">Nuestros Productos</a>
+                        <a href="productos.html">Nuestros Productos</a>
                     </li>
                     <li class="list">
-                        <a href="pages/nosotros.html">Nostros</a>
+                        <a href="nosotros.html">Nostros</a>
                     </li>
                     <li class="list">
-                        <a href="pages/contacto.html">Contacto</a>
+                        <a href="contacto.html">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -82,10 +83,36 @@
         
     </header>
     <main>
-        
-      <div id="contenedor-imagen"></div>
-           
+        <section class="contenedor_principal_productos">
+          <section class="filtro">
+            <h2>Filtrar por</h2>
+            <ul>
+                <li>
+                    <input class="filtro-submit" type="submit" value="Collares" />
+                    <ul>
+                        <li class="list_filtro">
+                            <input class="filtro-submit" type="submit" value="Collares" />
+                        </li>
+                        <li class="list_filtro">
+                            <input class="filtro-submit" type="submit" value="Anillos" />
+                        </li>
+                        <li class="list_filtro">
+                            <input class="filtro-submit" type="submit" value="Pulseras" />
+                        </li>
+                        <li class="list_filtro"> 
+                            <input class="filtro-submit" type="submit" value="Carteras" />
+                        </li>
+                    </ul>
+                
+                </li>
+                
+                
+            </ul>
 
+          </section>
+        <section class="box_productos">
+        </section>  
+        </section>
         
 
     </main>
@@ -98,16 +125,16 @@
         <section class="navbar_footer">
                 <ul class="navbar_footer_enlaces">
                     <li class="list_footer">
-                        <a href="index.html">Inicio</a>
+                        <a href="../index.html">Inicio</a>
                     </li>
                     <li class="list_footer">
-                        <a href="pages/productos.html">Nuestros Productos</a>
+                        <a href="productos.html">Nuestros Productos</a>
                     </li>
                     <li class="list_footer">
-                        <a href="pages/nosotros.html">Nostros</a>
+                        <a href="nosotros.html">Nostros</a>
                     </li>
                     <li class="list_footer">
-                        <a href="pages/contacto.html">Contacto</a>
+                        <a href="contacto.html">Contacto</a>
                     </li>
                 </ul>
           
@@ -152,6 +179,6 @@
          
     </footer>
     
-    <script src="js/script.js"></script>
+    
   </body>
 </html>
