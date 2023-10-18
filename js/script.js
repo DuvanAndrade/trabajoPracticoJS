@@ -323,10 +323,24 @@ for (const producto of productos) {
             <p><i>$${producto.precio}</i></p>
         </div>
         <div class="btn">
-        <a class="borrar-button" data-id=${producto.id}> <span>x</span> </a>
+        <a class="agregar-button" data-id=${producto.id}> <span>Agregar</span> </a>
     </div>
         </section>`;
 }
+
+
+// Crear un nuevo objeto de imagen
+const img = new Image();
+// Establecer la función a ejecutar una vez que la imagen se haya cargado
+img.onload = function() {
+// Esto se ejecuta una vez que la imagen se ha cargado correctamente
+const myImage = document.getElementById('contenedor_imagen');
+myImage.src = img.src;
+};
+// Establecer la fuente de la imagen
+img.src = '../assets/img/imgprincipal.jpg'; // Cambia ‘url_de_tu_imagen.jpg’ con la URL de tu imagen
+
+
 
 
 
