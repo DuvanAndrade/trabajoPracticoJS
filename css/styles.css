@@ -67,13 +67,14 @@
 }
 /*MAIN*/
 /*IDEX*/
-.ontenedor_imagen{
+.contenedor_imagen{
     width: 100%;
     height: 400PX;
     object-fit: cover;
     overflow: hidden;
     
 }
+
 /*PAGINA PRODUCTOS*/
 .filtro{
     padding: 4rem 2rem;
@@ -169,6 +170,18 @@
     text-align: center;
     font-family: var(--fuenteParrafos);
 }
+.formulario_contacto{
+    width: 50%;
+    padding: 5rem;
+}
+.campo{
+    display: flex;
+    text-align: left;
+}
+.formulario_contacto input{
+    
+
+}
 /*FOOTER*/
 .footer{
     background-color: var(--coloBase);
@@ -222,5 +235,57 @@
     font-size: 2rem;
     color: var(--colorTitulo);
 }
+
+
+/*MODAL*/
+.modal {
+    display: none; 
+    z-index: 1; 
+    padding-top: 100px; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  /* Modal Content */
+  .modal_content {
+    background-color: var(--coloBase);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--colorTitulo);
+    width: 80%;
+  }
+  .modal_campo{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+  .modal_campo h2{
+    color: var(--colorTitulo);
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+  }
+  .modal_campo label{
+    color: black;
+    font-family: var(--fuenteParrafos);
+  }
+  .tabcontent{
+    display: grid;
+    row-gap: 5rem;
+  }
+  /* The Close Button */
+  .close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: var(--colorTitulo);
+    text-decoration: none;
+    cursor: pointer;
+  }
 
 

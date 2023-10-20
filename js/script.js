@@ -310,9 +310,7 @@ const productos = [
     }
 } */
 //INGRESO DE LOS PRODUCTOS
-
-
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.querySelector('.box_productos');
 
 for (const producto of productos) {
@@ -321,17 +319,18 @@ for (const producto of productos) {
     <article  id=${producto.id} class="box">
         <img src=${producto.imagen} alt="imagen sobre ${producto.titulo}">
     </article>
-        <div class="descripcion_producto">
+    <div class="descripcion_producto">
             <h2>${producto.titulo}</h2>
             <p><i>$${producto.precio}</i></p>
         </div>
         <div class="btn">
-            <a class="agregar-button" data-id=${producto.id}> <span>Agregar</span> </a>
-        </div>
-    </section>`;
+        <a class="agregar-button" data-id=${producto.id}> <span>Agregar</span> </a>
+    </div>
+        </section>`;
 }
     
   });
+
 
 
 // Crear un nuevo objeto de imagen
@@ -344,6 +343,53 @@ myImage.src = img.src;
 };
 // Establecer la fuente de la imagen
 img.src = '../assets/img/imgprincipal.jpg'; // Cambia ‘url_de_tu_imagen.jpg’ con la URL de tu imagen
+
+
+/*FORMULARIO PAGINA CONTACTO */
+document.addEventListener("DOMContentLoaded", function () {
+    const formulario = document.getElementById("formulario_contacto");
+    const resultado = document.getElementById("resultado");
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nombre = formulario.nombre.value;
+      const apellido = formulario.apellido.value;
+      const email = formulario.email.value;
+      const mensaje = formulario.mensaje.value;
+  
+      if (nombre === "" || apellido === "" || email === "" || mensaje === "") {
+        resultado.textContent = "Por favor, completa todos los campos.";
+        return;
+      }
+      resultado.textContent = "Formulario enviado con éxito.";
+      formulario.reset();
+    });
+  });
+
+
+
+
+/*MODAL INICIO O REGISTRO DE CUENTA */
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("myBtn");
+const span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+
 
 
 

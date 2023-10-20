@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css" />
-
     <!-- Googles fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -102,6 +100,31 @@
               <p>info@aurora.com</p>
             </div>
           </section>
+        </section>
+        <section>
+          <form class="formulario_contacto" id="formulario_contacto">
+            <div class="campo">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required>
+              <label for="nombre">Apellido:</label>
+              <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div class="campo">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="campo">
+              <label for="asunto">Asunto:</label>
+              <textarea id="asunto" name="asunto" required></textarea>
+            </div>
+            <div class="campo">
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" name="mensaje" required></textarea><br>
+            </div>
+            <input type="submit" value="Enviar">
+          </form>
+        
+          <div id="resultado"></div>
         </section>
 
     </main>
