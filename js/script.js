@@ -312,7 +312,7 @@ const productos = [
 //INGRESO DE LOS PRODUCTOS
 document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.querySelector('.box_productos');
-
+    
 for (const producto of productos) {
     contenedor.innerHTML += `
     <section>
@@ -387,11 +387,61 @@ window.onclick = function(event) {
 }
 
 
+//INICIO DE SECCION O REGISTRO DE UNA NUEVA CUENTA 
+document.addEventListener("DOMContentLoaded", function() {
+    const formularioInicio = document.getElementById("formInicio");
+    const formularioRegistro = document.getElementById("formRegistro");
+    const mensaje = document.getElementById("mensaje");
 
+    // GUARDAR USUARIO EN EL LOCALST
+    function guardarUsuario(usuario) {
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        usuarios.push(usuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    }
 
+    // VALIDO Y PROCESO EL INICIO DE SECCION
+    function inicioSeccion(nombre, password) {
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        const usuario = usuarios.find(usuario => usuario.username === nombre && usuario.password === password);
+        return usuario;
+    }
 
+    // RESETEO DE CAMPOS Y ENVIO DE FORMULARIO
+    formularioInicio.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const nombreUsuario = document.getElementById("nombreUsuario").value;
+        const passwordInicio = document.getElementById("passwordInicio").value;
+        const usuario = inicioSeccion(nombreUsuario, passwordInicio);
 
+        if (usuario) {
+            mensaje.textContent = `Bienvenido ${localStorage.getItem("usuario.nombre")}`; 
+        } else {
+            mensaje.textContent = "Nombre o contraseña iconrrecta. Por favor, inténtalo de nuevo.";
+        }
 
+        formInicio.reset();
+    });
 
+    // RESETEO DE CAMPOS, ENVIO Y VALIDACION DE FORMULARIO DE REGISTRO
+    formularioRegistro.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const registroUsuario = document.getElementById("registroNombre").value;
+        const registroPassword = document.getElementById("registroPassword").value;
 
+        const users = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+        if (users.some(usuario => usuario.username === registroUsuario)) {
+            mensaje.textContent = "El usuario ya existe. Por favor, elige otro nombre de usuario.";
+        } else {
+            const nuevoUsuario = {
+                username: registroUsuario,
+                password: registroPassword
+            };
+            guardarUsuario(nuevoUsuario);
+            mensaje.textContent = "Registro exitoso";
+        }
+
+        formRegistro.reset();
+    });
+});

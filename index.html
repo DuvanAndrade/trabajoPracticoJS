@@ -59,49 +59,42 @@
               <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
             </svg>
             <!--MODAL PARA INICIAR SECCION Y CREAR UNA CUENTA-->
-            <div id="myModal" class="modal">
+            <section id="myModal" class="modal">
               <div class="modal_content">
                 <span class="close" id="closeModal">&times;</span>
-                <section class="modal_campo">
-                  <div id="loginTab" class="tabcontent">
+                <div class="modal_campo">
+                  <div>
                     <h2>Iniciar Sesión</h2>
-                    <form id="loginForm">
-                      <label for="loginUsername">Usuario:</label>
-                      <input type="text" id="loginUsername" name="loginUsername" required>
+                  <form id="formInicio">
+                    <label for="nombreUsuario">Usuario:</label>
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" required><br>
 
-                      <label for="loginPassword">Contraseña:</label>
-                      <input type="password" id="loginPassword" name="loginPassword" required>
+                    <label for="passwordInicio">Contraseña:</label>
+                    <input type="password" id="passwordInicio" name="passwordInicio" required><br>
 
-                      <button type="submit_cuenta">Iniciar Sesión</button>
-                    </form>
+                    <button type="submit">Iniciar Sesión</button>
+                  </form>
+                  </div>
+                  <div>
+                    <h2>Registro de Nueva Cuenta</h2>
+                  <form id="formRegistro">
+                      <label for="registroNombre">Usuario:</label>
+                      <input type="text" id="registroNombre" name="registroNombre" required><br>
+
+                      <label for="registroPassword">Contraseña:</label>
+                      <input type="password" id="registroPassword" name="registroPassword" required><br>
+
+                      <button type="submit">Registrar</button>
+                  </form>
+                  </div>
                   
-                  </div>
-                  <div id="registerTab" class="tabcontent">
-                    <h2>Registro</h2>
-                      <form id="registerForm">
-                        <label for="loginUsername">Nombre:</label>
-                        <input type="text" id="loginUsername" name="loginUsername" required>
 
-                        <label for="loginLastName">Appellido:</label>
-                        <input type="text" id="loginLastName" name="loginLastName" required>
-
-                        <label for="email">Email:</label>
-                        <input type="text" id="email" name="email" required>
-
-                        <label for="registerPassword">Contraseña:</label>
-                        <input type="password" id="registerPassword" name="registerPassword" required>
-
-                        <button type="submit_cuenta">Registrarse</button>
-                      </form>
-                  </div>
-                </section>
-                
+                  
+                  <div id="mensaje"></div>
+                </div>
               </div>
-          
-            </div>
-
+            </section>
           </div>
-
           
         </div>
         <nav >
