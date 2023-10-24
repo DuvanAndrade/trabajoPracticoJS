@@ -37,8 +37,10 @@
 .titulo h1{
     font-size: 4rem;  
     text-shadow: 2px 2px 3px #91878F;
+    color: var(--colorTitulo);
+    font-family: var(--fuenteHeading);
 }
-.titulo:hover{
+.titulo:hover h1{
     color: black;
 }
 .redes{
@@ -46,6 +48,13 @@
     gap: 2rem;
     padding-right: 2rem;
 }
+.redes svg{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--colorTitulo);
+    cursor: pointer;
+  }
+  
 
 .navbar_enlaces{
     display: flex;
@@ -64,6 +73,18 @@
     color: black;
     font-size: 1.3rem;
     font-family: var(--fuenteParrafos);
+}
+.carrito{
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+.carrito svg{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--colorTitulo);
+    cursor: pointer;
+    align-items: end;
 }
 /*MAIN*/
 /*IDEX*/
@@ -284,5 +305,12 @@
     text-decoration: none;
     cursor: pointer;
   }
+  #mensaje{
+    font-size: 1.5rem;
+    color: var(--colorTitulo);
+    font-weight: bold;
+    font-family: var(--colorTitulo);
+  }
 
+/** CARRITO **/
 

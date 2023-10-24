@@ -350,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("formulario_contacto");
     const resultado = document.getElementById("resultado");
   
-    form.addEventListener("submit", function (e) {
+    formulario.addEventListener("submit", function (e) {
       e.preventDefault();
 
       const nombre = formulario.nombre.value;
@@ -366,8 +366,6 @@ document.addEventListener("DOMContentLoaded", function () {
       formulario.reset();
     });
   });
-
-
 
 
 /*MODAL INICIO O REGISTRO DE CUENTA */
@@ -403,7 +401,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // VALIDO Y PROCESO EL INICIO DE SECCION
     function inicioSeccion(nombre, password) {
         const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-        const usuario = usuarios.find(usuario => usuario.username === nombre && usuario.password === password);
+        const usuario = usuarios.find(usuario => usuario.nombre === nombre && usuario.password === password);
         return usuario;
     }
 
@@ -413,14 +411,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const nombreUsuario = document.getElementById("nombreUsuario").value;
         const passwordInicio = document.getElementById("passwordInicio").value;
         const usuario = inicioSeccion(nombreUsuario, passwordInicio);
+        
 
         if (usuario) {
-            mensaje.textContent = `Bienvenido ${localStorage.getItem("usuario.nombre")}`; 
+            console.log(nombreUsuario)            
+            mensaje.textContent = "Bienvenido " + usuario.nombre; 
         } else {
             mensaje.textContent = "Nombre o contraseña iconrrecta. Por favor, inténtalo de nuevo.";
         }
 
-        formInicio.reset();
+        formularioInicio.reset();
     });
 
     // RESETEO DE CAMPOS, ENVIO Y VALIDACION DE FORMULARIO DE REGISTRO
@@ -429,13 +429,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const registroUsuario = document.getElementById("registroNombre").value;
         const registroPassword = document.getElementById("registroPassword").value;
 
-        const users = JSON.parse(localStorage.getItem("usuarios")) || [];
+        const usuario = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-        if (users.some(usuario => usuario.username === registroUsuario)) {
+        if (usuario.some(usuario => usuario.nombre === registroUsuario)) {
             mensaje.textContent = "El usuario ya existe. Por favor, elige otro nombre de usuario.";
         } else {
             const nuevoUsuario = {
-                username: registroUsuario,
+                nombre: registroUsuario,
                 password: registroPassword
             };
             guardarUsuario(nuevoUsuario);
@@ -445,3 +445,9 @@ document.addEventListener("DOMContentLoaded", function() {
         formRegistro.reset();
     });
 });
+
+
+//CARRITO
+
+
+
