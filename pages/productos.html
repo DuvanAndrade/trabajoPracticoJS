@@ -29,8 +29,8 @@
     <!--  enlazando css-->
     <link rel="stylesheet" href="../css/styles.css">
      <!--  enlazando js-->
-     
-   <script defer src="../js/script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>     
+    <script defer src="../js/script.js"></script>
   </head>
   <body>
     <header>
@@ -72,29 +72,40 @@
                   <div class="modal_campo">
                     <div>
                       <h2>Iniciar Sesión</h2>
-                    <form id="formInicio">
-                      <label for="nombreUsuario">Usuario:</label>
-                      <input type="text" id="nombreUsuario" name="nombreUsuario" required><br>
-  
-                      <label for="passwordInicio">Contraseña:</label>
-                      <input type="password" id="passwordInicio" name="passwordInicio" required><br>
-  
-                      <button type="submit">Iniciar Sesión</button>
+                    <form class="form">
+                      <div >
+                        <div class="campo_form">
+                          <label for="nombreUsuario">Usuario:</label>
+                          <input  type="text" id="nombreUsuario" name="nombreUsuario" >
+                        </div>
+                        <div class="campo_form">
+                          <label for="passwordInicio">Contraseña:</label>
+                          <input  type="password" id="passwordInicio" name="passwordInicio" >
+                        </div>
+                      </div>
+                      <div>
+                        <button class="btn_form" type="submit">Iniciar Sesión</button>
+                      </div>
                     </form>
                     </div>
                     <div>
                       <h2>Registro de Nueva Cuenta</h2>
-                    <form id="formRegistro">
-                        <label for="registroNombre">Usuario:</label>
-                        <input type="text" id="registroNombre" name="registroNombre" required><br>
-  
-                        <label for="registroPassword">Contraseña:</label>
-                        <input type="password" id="registroPassword" name="registroPassword" required><br>
-  
-                        <button type="submit">Registrar</button>
+                    <form class="form">
+                      <div>
+                        <div class="campo_form">
+                          <label for="registroNombre">Usuario:</label>
+                          <input type="text" id="registroNombre" name="registroNombre" >
+                        </div>
+                        <div class="campo_form">
+                          <label for="registroPassword">Contraseña:</label>
+                          <input type="password" id="registroPassword" name="registroPassword" >
+                        </div>  
+                      </div>
+                      <div>
+                        <button class="btn_form" type="submit">Registrar</button>
+                      </div>
                     </form>
                     </div>
-                    <div id="mensaje"></div>
                   </div>
                 </div>
               </section>           
@@ -137,28 +148,20 @@
           <section class="filtro">
             <h2>Filtrar por</h2>
             <ul>
-                <li>
-                    <input class="filtro-submit" type="submit" value="Categoria" />
-                    <ul>
-                        <li class="list_filtro">
-                            <input class="filtro-submit" type="submit" value="Collares" />
-                        </li>
-                        <li class="list_filtro">
-                            <input class="filtro-submit" type="submit" value="Anillos" />
-                        </li>
-                        <li class="list_filtro">
-                            <input class="filtro-submit" type="submit" value="Pulseras" />
-                        </li>
-                        <li class="list_filtro"> 
-                            <input class="filtro-submit" type="submit" value="Carteras" />
-                        </li>
-                    </ul>
-                
-                </li>
-                
+              <li class="list_filtro">
+                <button id="todos" class="btn_menu btn_categoria active">Todos los productos</button>
+              </li>
+              <li class="list_filtro">
+              <button id="pulseras" class="btn_menu btn_categoria">Pulseras</button>
+              </li>
+              <li class="list_filtro">
+                <button id="anillos" class="btn_menu btn_categoria">Anillos</button>
+              </li>
+              <li class="list_filtro">
+                <button id="collares" class="btn_menu btn_categoria">Collares</button>
+              </li>
                 
             </ul>
-
           </section>
           <section>
             
@@ -193,9 +196,7 @@
                     <li class="list_footer">
                         <a href="carrito.html">Carrito</a>
                     </li>
-                    <li class="list_footer" >
-                        <a href="carrito.html">Carrito</a>
-                      </li>
+                    
                 </ul>
           
             </section>
@@ -223,7 +224,7 @@
                         <label for="mail">Email*</label>
                         <input class="input_footer" type="email" id="mail" name="user_mail" "/>
                         </li>
-                        <li class="button list_footer">
+                        <li class="button list_footer emailInput">
                         <button class="btn_enviar" type="submit">Enviar</button>
                         </li>
                     </ul>

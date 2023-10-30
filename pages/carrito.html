@@ -29,6 +29,7 @@
     <!--  enlazando css-->
     <link rel="stylesheet" href="../css/styles.css">
     <!--  enlazando js-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script defer src="../js/script.js"></script>
   </head>
   <body>
@@ -71,29 +72,40 @@
                 <div class="modal_campo">
                   <div>
                     <h2>Iniciar Sesión</h2>
-                  <form id="formInicio">
-                    <label for="nombreUsuario">Usuario:</label>
-                    <input type="text" id="nombreUsuario" name="nombreUsuario" required><br>
-
-                    <label for="passwordInicio">Contraseña:</label>
-                    <input type="password" id="passwordInicio" name="passwordInicio" required><br>
-
-                    <button type="submit">Iniciar Sesión</button>
+                  <form class="form">
+                    <div >
+                      <div class="campo_form">
+                        <label for="nombreUsuario">Usuario:</label>
+                        <input  type="text" id="nombreUsuario" name="nombreUsuario" >
+                      </div>
+                      <div class="campo_form">
+                        <label for="passwordInicio">Contraseña:</label>
+                        <input  type="password" id="passwordInicio" name="passwordInicio" >
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn_form" type="submit">Iniciar Sesión</button>
+                    </div>
                   </form>
                   </div>
                   <div>
                     <h2>Registro de Nueva Cuenta</h2>
-                  <form id="formRegistro">
-                      <label for="registroNombre">Usuario:</label>
-                      <input type="text" id="registroNombre" name="registroNombre" required><br>
-
-                      <label for="registroPassword">Contraseña:</label>
-                      <input type="password" id="registroPassword" name="registroPassword" required><br>
-
-                      <button type="submit">Registrar</button>
+                  <form class="form">
+                    <div>
+                      <div class="campo_form">
+                        <label for="registroNombre">Usuario:</label>
+                        <input type="text" id="registroNombre" name="registroNombre" >
+                      </div>
+                      <div class="campo_form">
+                        <label for="registroPassword">Contraseña:</label>
+                        <input type="password" id="registroPassword" name="registroPassword" >
+                      </div>  
+                    </div>
+                    <div>
+                      <button class="btn_form" type="submit">Registrar</button>
+                    </div>
                   </form>
                   </div>
-                  <div id="mensaje"></div>
                 </div>
               </div>
             </section>           
@@ -132,7 +144,30 @@
 
     </header>
     <main>
-      
+      <h2 class="titulo-principal">Carrito</h2>
+            <div class="contenedor-carrito">
+                <p id="carrito-vacio" class="carrito-vacio">Tu carrito está vacío. <i class="bi bi-emoji-frown"></i></p>
+
+                <div id="carrito-productos" class="carrito-productos disabled">
+                    <!-- Esto se va a completar con el JS -->
+                </div>
+
+                <div id="carrito-acciones" class="carrito-acciones disabled">
+                    <div class="carrito-acciones-izquierda">
+                        <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar carrito</button>
+                    </div>
+                    <div class="carrito-acciones-derecha">
+                        <div class="carrito-acciones-total">
+                            <p>Total:</p>
+                            <p id="total">$3000</p>
+                        </div>
+                        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</button>
+                    </div>
+                </div>
+
+                <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por tu compra. <i class="bi bi-emoji-laughing"></i></p>
+
+            </div>
     </main>
     <footer class="footer">
       <section>
@@ -184,7 +219,7 @@
                 <label for="mail">Email*</label>
                 <input class="input_footer" type="email" id="mail" name="user_mail" "/>
               </li>
-              <li class="button list_footer">
+              <li class="button list_footer emailInput">
                 <button class="btn_enviar" type="submit">Enviar</button>
               </li>
             </ul>

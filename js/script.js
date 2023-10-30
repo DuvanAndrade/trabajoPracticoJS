@@ -166,208 +166,73 @@ const productos = [
     },
 ]
 
+//INDEX
 
-// //MOSTRAR PRODUCTOS DE LA TIENDA, ESTO LO VE EL USUARIO SE O NO CLIENTE
-// mostrarProductos();
-
-
-
-// //PIDO INGRESO DE USUARIO
-// let clienteIngresado = prompt('Ingrese Usuario:');
-// let passwordIngresada = prompt('Ingrese Contraseña:');
-// //INICIALIZO EL CARRITO DE COMPRAS
-// const carrito = [];
-
-// /* VALIDO QUE EL USUARIO SEA CORRECTO. DE SER ASI EJECUTO LA OPCION DE MENU Y COMPRAR DE LOS CONTRARIO MSN DE USUARIO INCORRECTO  */
-//  function validarUsuario(){
-//      if (clienteIngresado === nombreCliente && passwordIngresada === passwordCliente){
-//          alert('Bienvenido ' + clienteIngresado);
-        
-//          do {
-//             /*EL USUARIO ELIGE UNA OPCION DE PRODCUTOS*/
-//             opcionDeCompra = parseInt(prompt('Ingrese una de las siguientes opciones: \n1: Anillos. \n2: Collares. \n3: Pulseras  \n4: para salir'));
-//             switch (opcionDeCompra) {
-//                 case 1:
-//                     //FILTRO EL ARRAY POR ANILLOS YA QUE ES LA OPCION 1 DEL MENU
-//                     const anillos = productos.filter((producto) => producto.categoria.nombre.includes("anillos"));
-//                     //INVOCO FUNCION mostrarPorCategoria()               
-//                     mostrarPorCategoria(anillos);
-//                     //PIDO AL USUARIO QUE INGRESE EL ID DEL PRODUCTO DESEADO
-//                     idIngresado= parseInt(prompt('ingrese id del producto deseado'));
-//                     //CON EL ID PEDIDO INVOCO A LA FUNCION agregarAlCarrito QUE COMPARA IDS Y SI COINCIDEN AGREGA AL CARRITO
-//                     agregarAlCarrito(idIngresado, anillos, carrito);
-                              
-//                     break;
-//                 case 2:
-//                     //FILTRO EL ARRAY POR ANILLOS YA QUE ES LA OPCION 1 DEL MENU
-//                     const collares = productos.filter((producto) => producto.categoria.nombre.includes("collares"));
-//                     //INVOCO FUNCION mostrarPorCategoria()               
-//                     mostrarPorCategoria(collares);
-//                     //PIDO AL USUARIO QUE INGRESE EL ID DEL PRODUCTO DESEADO
-//                     idIngresado= parseInt(prompt('ingrese id del producto deseado'));
-//                     //CON EL ID PEDIDO INVOCO A LA FUNCION agregarAlCarrito QUE COMPARA IDS Y SI COINCIDEN AGREGA AL CARRITO
-//                     agregarAlCarrito(idIngresado, collares, carrito);
-                
-//                     break;
-//                 case 3:
-//                     //FILTRO EL ARRAY POR ANILLOS YA QUE ES LA OPCION 1 DEL MENU
-//                     const pulseras = productos.filter((producto) => producto.categoria.nombre.includes("pulseras"));
-//                     //INVOCO FUNCION mostrarPorCategoria()               
-//                     mostrarPorCategoria(pulseras);
-//                     //PIDO AL USUARIO QUE INGRESE EL ID DEL PRODUCTO DESEADO
-//                     idIngresado= parseInt(prompt('ingrese id del producto deseado'));
-//                     //CON EL ID PEDIDO INVOCO A LA FUNCION agregarAlCarrito QUE COMPARA IDS Y SI COINCIDEN AGREGA AL CARRITO
-//                     agregarAlCarrito(idIngresado, pulseras, carrito);
-                   
-//                     break;
-//                 case 4:
-//                     alert('Vuelva pronto');
-//                     break;
-//                 default:
-//                     alert('Opción inválida');
-//                     break;
-//             }
-        
-//         } while (opcionDeCompra !== 4 );
-//         mostrarCarrito(carrito);
-//         valorTotalCarrito();
-//      }else{
-//          alert('Nombre de usuario o contraseña incorrectos');
-//      }
-     
-//  }
- 
-//  validarUsuario();
- 
-//  //CREO FUNCION PARA MOSTAR LOS PRODUCTOS POR CATEGORIA
-// function mostrarPorCategoria(arrayPorCategoria){
-//     let mensaje = "Nuestros Productos\n";
-//     arrayPorCategoria.map((producto) => {
-//         mensaje += (`${producto.id}: ${producto.titulo}  $${producto.precio} \n -------------------------------- \n`);
-//     });
-//     alert(mensaje);
-// }
-// //FUNCION PARA AGREGAR PRODUCTO AL CARRITO, COMPARA IDS Y DE SER IGUALES AGREGA EL PRODUCTO AL CARRITO
-// function agregarAlCarrito(idIngresadoPorUsuario, arrayPorCategoria, carrito){
-//     let productoSeleccionado = arrayPorCategoria.find(function(producto) {
-//         return producto.id === idIngresadoPorUsuario;
-//       });
-//       if(productoSeleccionado){
-//         carrito.push(productoSeleccionado);
-//         alert("Producto agregado al carrito exitosamente")
-//       }else {
-//         alert("Producto inexistente");
-//       }          
-// }
-
-
-
-// //FUNCION PARA MOSTRAR PRODUCTOS DISPONIBLES
-
-// function mostrarProductos(){
-//     let mensaje = "Nuestros Productos\n";
-//     productos.map((producto) => {
-//         mensaje += (`${producto.id}: ${producto.titulo}  $${producto.precio} \n -------------------------------- \n`);
-//     });
-//     alert(mensaje);
-// }
-
-// //CALCULO DEL VALOR TOTAL DEL CARRITO
-// function valorTotalCarrito(){
-//    alert(`El total de la compra es: $` + carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0) + 
-//    ' más el costo de envio:' + valorEnvio);
-   
-// }
-
-
-  
-// //FUNCION PARA MOSTRAR LOS PRODCUTOS DEL CARRITO
-//   function mostrarCarrito(carrito) {
-//     let mensaje = "Tu carrito de compras:\n";
-  
-//     for (let i = 0; i < carrito.length; i++) {
-//       mensaje += "Producto: " + carrito[i].titulo + " - Precio: $" + carrito[i].precio + "\n";
-//     }
-  
-//     alert(mensaje);
-//   }
-  
- 
- 
-  
-
-
-/* function validarStock(cantidadDeseada, stockProductos){
-    if(cantidadDeseada > stockProductos){
-        alert('Lo sentimos. La cantidad deseada supera la exitente')
-        do {
-            cantDeseada = parseInt(prompt('Pruebe otra cantidad menor'));
-        } while (cantDeseada > stockProductos);
-    
-    }else{
-        alert('Tus productos fueron agregados exitosamente')
-        
-    }
-} */
-//INGRESO DE LOS PRODUCTOS
-document.addEventListener("DOMContentLoaded", () => {
-    const contenedor = document.querySelector('.box_productos');
-    
-for (const producto of productos) {
-    contenedor.innerHTML += `
-    <section>
-    <article  id=${producto.id} class="box">
-        <img src=${producto.imagen} alt="imagen sobre ${producto.titulo}">
-    </article>
-    <div class="descripcion_producto">
-            <h2>${producto.titulo}</h2>
-            <p><i>$${producto.precio}</i></p>
-        </div>
-        <div class="btn">
-        <a class="agregar-button" data-id=${producto.id}> <span>Agregar</span> </a>
-    </div>
-        </section>`;
-}
-    
-  });
-
-
-
-// Crear un nuevo objeto de imagen
 const img = new Image();
-// Establecer la función a ejecutar una vez que la imagen se haya cargado
 img.onload = function() {
-// Esto se ejecuta una vez que la imagen se ha cargado correctamente
 const myImage = document.getElementById('contenedor_imagen');
 myImage.src = img.src;
-};
-// Establecer la fuente de la imagen
+}
 img.src = '../assets/img/imgprincipal.jpg'; // Cambia ‘url_de_tu_imagen.jpg’ con la URL de tu imagen
 
 
+
+
+//PAG CONTACTO
 /*FORMULARIO PAGINA CONTACTO */
 document.addEventListener("DOMContentLoaded", function () {
     const formulario = document.getElementById("formulario_contacto");
-    const resultado = document.getElementById("resultado");
-  
     formulario.addEventListener("submit", function (e) {
       e.preventDefault();
-
       const nombre = formulario.nombre.value;
       const apellido = formulario.apellido.value;
       const email = formulario.email.value;
       const mensaje = formulario.mensaje.value;
   
       if (nombre === "" || apellido === "" || email === "" || mensaje === "") {
-        resultado.textContent = "Por favor, completa todos los campos.";
+        envioError();
         return;
       }
-      resultado.textContent = "Formulario enviado con éxito.";
+      envioExitoso()
       formulario.reset();
     });
   });
 
 
+  function envioExitoso(){
+    Toastify({
+        text: "Formulario enviado con éxito.",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "var(--colorTitulo)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+  }
+  function envioError(){
+    Toastify({
+        text: "Por favor, completa todos los campos.",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "var(--colorTitulo)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+  }
+
+
+//NAVBAR
 /*MODAL INICIO O REGISTRO DE CUENTA */
 const modal = document.getElementById("myModal");
 const btn = document.getElementById("myBtn");
@@ -411,15 +276,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const nombreUsuario = document.getElementById("nombreUsuario").value;
         const passwordInicio = document.getElementById("passwordInicio").value;
         const usuario = inicioSeccion(nombreUsuario, passwordInicio);
-        
-
         if (usuario) {
-            console.log(nombreUsuario)            
-            mensaje.textContent = "Bienvenido " + usuario.nombre; 
+            Bienvenido(usuario.nombre);
         } else {
-            mensaje.textContent = "Nombre o contraseña iconrrecta. Por favor, inténtalo de nuevo.";
+            msnErrorLogin();
         }
-
         formularioInicio.reset();
     });
 
@@ -429,25 +290,235 @@ document.addEventListener("DOMContentLoaded", function() {
         const registroUsuario = document.getElementById("registroNombre").value;
         const registroPassword = document.getElementById("registroPassword").value;
 
-        const usuario = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-        if (usuario.some(usuario => usuario.nombre === registroUsuario)) {
-            mensaje.textContent = "El usuario ya existe. Por favor, elige otro nombre de usuario.";
+        if (registroUsuario === "" || registroPassword === "") {
+            msnErrorCampo();
+        } else if (registroUsuario.length < 6 || registroPassword.length < 6) {
+            msnAdvertencia();
         } else {
-            const nuevoUsuario = {
-                nombre: registroUsuario,
-                password: registroPassword
-            };
-            guardarUsuario(nuevoUsuario);
-            mensaje.textContent = "Registro exitoso";
+            const usuario = JSON.parse(localStorage.getItem("usuarios")) || [];
+            if (usuario.some(usuario => usuario.nombre === registroUsuario)) {
+                msnErrorResgistro();
+            } else {
+                const nuevoUsuario = {
+                    nombre: registroUsuario,
+                    password: registroPassword
+                };
+                guardarUsuario(nuevoUsuario);
+                registroExitoso();
+            }
         }
 
         formRegistro.reset();
     });
 });
 
+function Bienvenido(nombre){
+    swal({
+        title: "Bienvenido",
+        text: `${nombre} 😊`,
+        icon: "success",
+      });
+}
+function msnErrorLogin(){
+    swal({
+        title: "Error 🙃",
+        text: "Nombre o contraseña iconrrecta. Por favor, inténtalo de nuevo.",
+        icon: "error",
+      });
+}
+function msnErrorResgistro(){
+    swal({
+        title: "Error 🙃",
+        text: "El usuario ya existe. Por favor, elige otro nombre de usuario.",
+        icon: "error",
+      });
+}
+function msnAdvertencia(){
+    swal({
+        title: "👁️",
+        text: "El nombre de usuario y la contraseña deben tener al menos 6 caracteres.",
+        icon: "warning",
+      });
+}
+function msnErrorCampo(){
+    swal({
+        title: "🙏🏻",
+        text: "Por favor, ingresa un nombre ó contraseña válida.",
+        icon: "warning",
+      });
+}
+function registroExitoso(nombre){
+    swal({
+        title: "Bien Hecho",
+        text: "Registro exitoso",
+        icon: "success",
+      });
+}
 
-//CARRITO
 
 
+//NUESTROS PRODUCTOS
+let btns_agregar = document.querySelectorAll('.agregar_producto');
+const catalogo = document.querySelector('.box_productos');
+const titulo = document.querySelector('.titulo_principal');
+
+function cargarProductos(categoria) {       
+    catalogo.innerHTML = ''; // SE LIMPIA EL CONTENIDO DEL CARRITO
+
+    productos.forEach(producto => {
+        if (categoria === 'todos' || producto.categoria.nombre === categoria) {
+            const div = document.createElement('div');
+            
+            titulo.innerHTML = "Nuestros Productos";
+            //SE CREA UN DIV CON LOS ELEMNTOS DEL PRODCUTO A MOSTRAR
+            div.innerHTML = `
+            
+            <article  id=${producto.id} class="box">
+            <img src=${producto.imagen} alt="imagen sobre ${producto.titulo}">
+            </article>
+            <div class="descripcion_producto">
+                <h2>${producto.titulo}</h2>
+                <p><i>$${producto.precio}</i></p>
+            </div>
+            <div class="btn">
+            <button class="agregar_producto" data-id=${producto.id} onclick = "agregarAlCarrito(${producto.id})"> <span>Agregar</span> </button>
+            </div>
+        
+            `;
+            catalogo.append(div);
+        }
+       
+    });
+    actualizarBtnsAgregar();    
+}
+
+document.getElementById('todos').addEventListener('click', () => cargarProductos('todos'));
+document.getElementById('collares').addEventListener('click', () => cargarProductos('collares'));
+document.getElementById('pulseras').addEventListener('click', () => cargarProductos('pulseras'));
+document.getElementById('anillos').addEventListener('click', () => cargarProductos('anillos'));
+
+
+cargarProductos('todos');
+
+
+function actualizarBtnsAgregar(){
+    btns_agregar = document.querySelectorAll(".agregar_producto");
+    btns_agregar.forEach(boton =>{
+        boton.addEventListener("click", agregarAlCarrito);
+         
+    });
+}
+
+
+//INICIALIZACION EL CARRITO VACIO
+const produCarrito = document.querySelector(".contenedor-carrito");
+const productosEnCarrito = [];
+
+function agregarAlCarrito(id){
+    const productoAgregado = productos.find(producto => producto.id === id);
+    productosEnCarrito.push(productoAgregado);
+    
+    localStorage.setItem('carrito', JSON.stringify(productosEnCarrito));
+    console.log(productoAgregado)
+    console.log(productosEnCarrito);
+    
+}
+// function cargarProductosCarrito() {
+//     if (productosEnCarrito && productosEnCarrito.length > 0) {
+
+//         contenedorCarritoVacio.classList.add("disabled");
+//         contenedorCarritoProductos.classList.remove("disabled");
+//         contenedorCarritoAcciones.classList.remove("disabled");
+//         contenedorCarritoComprado.classList.add("disabled");
+    
+//         contenedorCarritoProductos.innerHTML = "";
+    
+//         productosEnCarrito.forEach(producto => {
+    
+//             const div = document.createElement("div");
+//             div.classList.add("carrito-producto");
+//             div.innerHTML = `
+//                 <img class="carrito-producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+//                 <div class="carrito-producto-titulo">
+//                     <small>Título</small>
+//                     <h3>${producto.titulo}</h3>
+//                 </div>
+//                 <div class="carrito-producto-cantidad">
+//                     <small>Cantidad</small>
+//                     <p>${producto.cantidad}</p>
+//                 </div>
+//                 <div class="carrito-producto-precio">
+//                     <small>Precio</small>
+//                     <p>$${producto.precio}</p>
+//                 </div>
+//                 <div class="carrito-producto-subtotal">
+//                     <small>Subtotal</small>
+//                     <p>$${producto.precio * producto.cantidad}</p>
+//                 </div>
+//                 <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
+//             `;
+    
+//             contenedorCarritoProductos.append(div);
+//         })
+    
+//     actualizarBotonesEliminar();
+//     actualizarTotal();
+	
+//     } else {
+//         contenedorCarritoVacio.classList.remove("disabled");
+//         contenedorCarritoProductos.classList.add("disabled");
+//         contenedorCarritoAcciones.classList.add("disabled");
+//         contenedorCarritoComprado.classList.add("disabled");
+//     }
+
+// }
+
+// cargarProductosCarrito();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const emailForm = document.getElementById('emailForm');
+const emailInput = document.getElementById('emailInput');
+
+emailForm.addEventListener('submit', function (e) {
+  e.preventDefault(); // Evita que el formulario se envíe de forma predeterminada.
+
+  const email = emailInput.value;
+
+  if (isValidEmail(email)) {
+    // El correo electrónico es válido, puedes guardarlo en el localStorage.
+    localStorage.setItem('email', email);
+    console.log('Correo electrónico válido y guardado en localStorage.');
+  } else {
+    console.log('El correo electrónico no es válido. Por favor, ingresa una dirección de correo válida.');
+  }
+});
+
+// Función para validar una dirección de correo electrónico.
+function isValidEmail(email) {
+  // Utiliza una expresión regular para verificar si el formato del correo es válido.
+  const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+  return emailRegex.test(email);
+}
+console.log(emailInput)
+})
 

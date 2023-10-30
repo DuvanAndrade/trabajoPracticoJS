@@ -24,11 +24,13 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!--  enlazando css-->
     <link rel="stylesheet" href="../css/styles.css">
      <!--  enlazando js-->
-   <script defer src="../js/script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="../js/script.js"></script>
   </head>
   <body>
     <header>
@@ -70,29 +72,40 @@
                 <div class="modal_campo">
                   <div>
                     <h2>Iniciar Sesión</h2>
-                  <form id="formInicio">
-                    <label for="nombreUsuario">Usuario:</label>
-                    <input type="text" id="nombreUsuario" name="nombreUsuario" required><br>
-
-                    <label for="passwordInicio">Contraseña:</label>
-                    <input type="password" id="passwordInicio" name="passwordInicio" required><br>
-
-                    <button type="submit">Iniciar Sesión</button>
+                  <form class="form">
+                    <div >
+                      <div class="campo_form">
+                        <label for="nombreUsuario">Usuario:</label>
+                        <input  type="text" id="nombreUsuario" name="nombreUsuario" >
+                      </div>
+                      <div class="campo_form">
+                        <label for="passwordInicio">Contraseña:</label>
+                        <input  type="password" id="passwordInicio" name="passwordInicio" >
+                      </div>
+                    </div>
+                    <div>
+                      <button class="btn_form" type="submit">Iniciar Sesión</button>
+                    </div>
                   </form>
                   </div>
                   <div>
                     <h2>Registro de Nueva Cuenta</h2>
-                  <form id="formRegistro">
-                      <label for="registroNombre">Usuario:</label>
-                      <input type="text" id="registroNombre" name="registroNombre" required><br>
-
-                      <label for="registroPassword">Contraseña:</label>
-                      <input type="password" id="registroPassword" name="registroPassword" required><br>
-
-                      <button type="submit">Registrar</button>
+                  <form class="form">
+                    <div>
+                      <div class="campo_form">
+                        <label for="registroNombre">Usuario:</label>
+                        <input type="text" id="registroNombre" name="registroNombre" >
+                      </div>
+                      <div class="campo_form">
+                        <label for="registroPassword">Contraseña:</label>
+                        <input type="password" id="registroPassword" name="registroPassword" >
+                      </div>  
+                    </div>
+                    <div>
+                      <button class="btn_form" type="submit">Registrar</button>
+                    </div>
                   </form>
                   </div>
-                  <div id="mensaje"></div>
                 </div>
               </div>
             </section>           
@@ -151,29 +164,32 @@
             </div>
           </section>
         </section>
-        <section>
+        <section class="contacto_info_consulta">
+          <h3><i>Consultas</i></h3>
+          <p>Para preguntas de productos y servicios, contacta con nosotros</p>
+          <p>rellenando el siguiente formulario</p>
+        </section>
+        <section class="formulario">
           <form class="formulario_contacto" id="formulario_contacto">
-            <div class="campo">
+            <div class="campo_ajuste">
               <label for="nombre">Nombre:</label>
               <input type="text" id="nombre" name="nombre" >
               <label for="apellido">Apellido:</label>
               <input type="text" id="apellido" name="apellido" >
             </div>
-            <div class="campo">
+            <div class="campo campo_ajuste">
               <label for="email">Email:</label>
               <input type="email" id="email" name="email" >
             </div>
-            <div class="campo">
+            <div class="campo campo_ajuste">
               <label for="asunto">Asunto:</label>
               <textarea id="asunto" name="asunto" ></textarea>
             </div>
-            <div class="campo">
+            <div class="campo campo_ajuste">
               <label for="mensaje">Mensaje:</label>
               <textarea id="mensaje" name="mensaje" ></textarea><br>
             </div>
-            <input type="submit" value="Enviar">
-            
-          <div id="resultado"></div>
+            <input class="btn_enviar_form" type="submit" value="Enviar">            
           </form>
         
         </section>
@@ -229,7 +245,7 @@
                         <label for="mail">Email*</label>
                         <input class="input_footer" type="email" id="mail" name="user_mail" "/>
                         </li>
-                        <li class="button list_footer">
+                        <li class="button list_footer emailInput">
                         <button class="btn_enviar" type="submit">Enviar</button>
                         </li>
                     </ul>
