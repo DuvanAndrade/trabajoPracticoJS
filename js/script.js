@@ -166,6 +166,59 @@ const productos = [
     },
 ]
 
+
+//BOTON ENVIAR EMAIL FOOTER
+document.getElementById("emailForm").addEventListener("submit", function(e) {
+e.preventDefault();
+    const email = document.getElementById("emailInput").value;
+    const emailValido = validarEmail(email);
+
+    if (!emailValido) {
+        emailInvalido();
+    } else {
+       localStorage.setItem("user_email", email);
+        envioEmail();
+    } 
+    });
+
+function validarEmail(email) {
+    const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+    return regex.test(email);
+}
+
+function envioEmail(){
+    Toastify({
+        text: "Email enviado con éxito.",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "var(--colorTitulo)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+}
+function emailInvalido(){
+    Toastify({
+        text: "Por favor, ingresa un email valido.",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "var(--colorTitulo)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+}
+
+
 //INDEX
 
 const img = new Image();
@@ -492,33 +545,38 @@ function agregarAlCarrito(id){
 
 
 
+// // Obtén referencias a los elementos del DOM
+// const inputBusqueda = document.getElementById("inputBusqueda");
+// const botonBusqueda = document.getElementById("botonBusqueda");
+// const resultados = document.getElementById("resultados");
+
+// // Evento de clic en el botón de búsqueda
+// botonBusqueda.addEventListener("click", function() {
+//   buscar(inputBusqueda.value);
+// });
+
+// // Evento de presionar Enter en el campo de búsqueda
+// inputBusqueda.addEventListener("keydown", function(event) {
+//   if (event.key === "Enter") {
+//     buscar(inputBusqueda.value);
+//   }
+// });
+
+// // Función de búsqueda
+// function buscar(query) {
+//   // Puedes realizar la búsqueda en una fuente de datos o en una lista de elementos en tu página
+//   // Aquí un ejemplo simple con una lista de elementos
+//     catalogo = document.querySelector('.box_productos');
 
 
+//   // Limpiar resultados anteriores
+//   resultados.innerHTML = "";
 
-document.addEventListener("DOMContentLoaded", function() {
-    const emailForm = document.getElementById('emailForm');
-const emailInput = document.getElementById('emailInput');
-
-emailForm.addEventListener('submit', function (e) {
-  e.preventDefault(); // Evita que el formulario se envíe de forma predeterminada.
-
-  const email = emailInput.value;
-
-  if (isValidEmail(email)) {
-    // El correo electrónico es válido, puedes guardarlo en el localStorage.
-    localStorage.setItem('email', email);
-    console.log('Correo electrónico válido y guardado en localStorage.');
-  } else {
-    console.log('El correo electrónico no es válido. Por favor, ingresa una dirección de correo válida.');
-  }
-});
-
-// Función para validar una dirección de correo electrónico.
-function isValidEmail(email) {
-  // Utiliza una expresión regular para verificar si el formato del correo es válido.
-  const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-  return emailRegex.test(email);
-}
-console.log(emailInput)
-})
+//   // Iterar a través de los elementos y mostrar los que coincidan con la búsqueda
+//   catalogo.forEach(elemento => {
+//     if (elemento.textContent.toLowerCase().includes(query.toLowerCase())) {
+//       resultados.appendChild(elemento.cloneNode(true));
+//     }
+//   });
+// }
 

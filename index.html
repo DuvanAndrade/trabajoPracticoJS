@@ -24,23 +24,25 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-
+    <!--  enlazando toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!--  enlazando css-->
-    <link rel="stylesheet" href="css/styles.css">
-    <!--  enlazando js-->
+    <link rel="stylesheet" href="../css/styles.css">
+     <!--  enlazando js-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script defer src="js/script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="../js/script.js"></script>
   </head>
   <body>
     <header>
       <section class="contenedor_encabezado">
         <div class="encabezado">
           <div class="buscador">
-            <form role="search">
-              <input class="buscador" type="search" placeholder="Buscar..." aria-label="Search">
-            </form>
+            <input type="text" id="inputBusqueda" placeholder="Buscar...">
+            <button id="botonBusqueda">Buscar</button>
           </div>
-
+          <div id="resultados"></div>
+          
           <div class="titulo list">
             <li >
               <a  href="index.html"><h1><i>aurora.</i></h1></a>
@@ -196,11 +198,11 @@
           <h1 >¡ÚNETE!</h1>
         </div>
         <div class="formulario_footer">
-          <form id="emailForm" >
-            <input class="input_footer" id="emailInput" type="email" id="mail" name="user_mail" placeholder="Email*"/>            
-            <button class="btn_enviar" type="submit">Enviar</button>
-          </form>
-        </div>       
+    <form id="emailForm">
+      <input class="input_footer" id="emailInput" type="email" name="user_mail" placeholder="Email*"/>            
+      <button class="btn_enviar" type="submit">Enviar</button>
+    </form>
+  </div>      
       </section>
         </footer>
 

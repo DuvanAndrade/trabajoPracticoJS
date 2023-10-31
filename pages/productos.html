@@ -26,10 +26,13 @@
       crossorigin="anonymous"
     />
     
+    <!--  enlazando toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!--  enlazando css-->
     <link rel="stylesheet" href="../css/styles.css">
      <!--  enlazando js-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>     
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script defer src="../js/script.js"></script>
   </head>
   <body>
@@ -214,25 +217,16 @@
                 </ul>
             </section>
             <section>
-                <div class="titulo_email">
-                    <h1 >¡ÚNETE!</h1>
-                </div>
-                <div class="formulario_footer">
-                   <form >
-                    <ul>
-                        <li class="list_footer">
-                        <label for="mail">Email*</label>
-                        <input class="input_footer" type="email" id="mail" name="user_mail" "/>
-                        </li>
-                        <li class="button list_footer emailInput">
-                        <button class="btn_enviar" type="submit">Enviar</button>
-                        </li>
-                    </ul>
-                </form> 
-                </div>
-                
-                
-               
+              <div class="titulo_email">
+                <h1 >¡ÚNETE!</h1>
+              </div>
+              <div class="formulario_footer">
+                <form id="emailForm" >
+                  <input class="input_footer" id="emailInput" type="email" id="mail" name="user_mail" placeholder="Email*"/>            
+                  <button class="btn_enviar" type="submit">Enviar</button>
+                  
+                </form>
+              </div>       
             </section>
         
        

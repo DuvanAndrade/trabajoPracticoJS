@@ -26,10 +26,13 @@
       crossorigin="anonymous"
     />
 
+    <!--  enlazando toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!--  enlazando css-->
     <link rel="stylesheet" href="../css/styles.css">
-    <!--  enlazando js-->
+     <!--  enlazando js-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script defer src="../js/script.js"></script>
   </head>
   <body>
@@ -178,16 +181,16 @@
       <section class="navbar_footer">
         <ul class="navbar_footer_enlaces">
           <li class="list_footer">
-            <a href="index.html">Inicio</a>
+            <a href="../index.html">Inicio</a>
           </li>
           <li class="list_footer">
-            <a href="pages/productos.html">Nuestros Productos</a>
+            <a href="productos.html">Nuestros Productos</a>
           </li>
           <li class="list_footer">
-            <a href="pages/nosotros.html">Nostros</a>
+            <a href="nosotros.html">Nostros</a>
           </li>
           <li class="list_footer">
-            <a href="pages/contacto.html">Contacto</a>
+            <a href="contacto.html">Contacto</a>
           </li>
           <li class="list_footer" >
             <a href="carrito.html">Carrito</a>
@@ -213,21 +216,12 @@
           <h1 >¡ÚNETE!</h1>
         </div>
         <div class="formulario_footer">
-          <form >
-            <ul>
-              <li class="list_footer">
-                <label for="mail">Email*</label>
-                <input class="input_footer" type="email" id="mail" name="user_mail" "/>
-              </li>
-              <li class="button list_footer emailInput">
-                <button class="btn_enviar" type="submit">Enviar</button>
-              </li>
-            </ul>
+          <form id="emailForm" >
+            <input class="input_footer" id="emailInput" type="email" id="mail" name="user_mail" placeholder="Email*"/>            
+            <button class="btn_enviar" type="submit">Enviar</button>
+            
           </form>
-        </div>
-
-                
-               
+        </div>       
       </section>
 
        
