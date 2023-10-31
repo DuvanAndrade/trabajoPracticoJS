@@ -226,7 +226,7 @@ img.onload = function() {
 const myImage = document.getElementById('contenedor_imagen');
 myImage.src = img.src;
 }
-img.src = '../assets/img/imgprincipal.jpg'; // Cambia ‘url_de_tu_imagen.jpg’ con la URL de tu imagen
+img.src = 'assets/img/imgprincipal.jpg'; // Cambia ‘url_de_tu_imagen.jpg’ con la URL de tu imagen
 
 
 
