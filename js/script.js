@@ -164,11 +164,97 @@ const productos = [
         },
         precio: 2500
     },
+    //BILLETERAS-BOLSOS
+    {
+        id: 16,
+        titulo: "Billetera de cuero Azul",
+        imagen: "../assets/img/carteras/billetera-azul.webp",
+        categoria: {
+            nombre: "carteras",
+            id: "carteras"
+        },
+        precio: 2500
+    },
+    {
+        id: 17,
+        titulo: "Billetera de cuero Rosa",
+        imagen: "../assets/img/carteras/billetera-rosa.jpg",
+        categoria: {
+            nombre: "carteras",
+            id: "carteras"
+        },
+        precio: 2500
+    },
+    {
+        id: 18,
+        titulo: "Juego de Bolso y Cartera",
+        imagen: "../assets/img/carteras/bolso-cartera-rayas.jpg",
+        categoria: {
+            nombre: "carteras",
+            id: "carteras"
+        },
+        precio: 2500
+    },
+    {
+        id: 19,
+        titulo: "Bolso de cuero Negro",
+        imagen: "../assets/img/carteras/bolso-cuero-negro.png",
+        categoria: {
+            nombre: "carteras",
+            id: "carteras"
+        },
+        precio: 2500
+    },
+    {
+        id: 20,
+        titulo: "Billetera de cuero Rosa",
+        imagen: "../assets/img/carteras/cartera-cuero-rosa.jpg",
+        categoria: {
+            nombre: "carteras",
+            id: "carteras"
+        },
+        precio: 2500
+    },
+    //CINTURONES
+    {
+        id: 21,
+        titulo: "Cinturon Amanda",
+        imagen: "../assets/img/cinturones/cinturon-amarillo.jpg",
+        categoria: {
+            nombre: "cinturones",
+            id: "cinturones"
+        },
+        precio: 2500
+    },
+    {
+        id: 22,
+        titulo: "Cinturon Bianca",
+        imagen: "../assets/img/cinturones/cinturon-blanco.jpg",
+        categoria: {
+            nombre: "cinturones",
+            id: "cinturones"
+        },
+        precio: 2500
+    },
+    {
+        id: 23,
+        titulo: "Cinturon Nina",
+        imagen: "../assets/img/cinturones/cinturon-negro.jpg",
+        categoria: {
+            nombre: "cinturones",
+            id: "cinturones"
+        },
+        precio: 2500
+    },
+
+    
+
 ]
 
 
 //BOTON ENVIAR EMAIL FOOTER
-document.getElementById("emailForm").addEventListener("submit", function(e) {
+const btnEmail = document.getElementById("emailForm");
+btnEmail.addEventListener("submit", function(e) {
 e.preventDefault();
     const email = document.getElementById("emailInput").value;
     const emailValido = validarEmail(email);
@@ -179,7 +265,9 @@ e.preventDefault();
        localStorage.setItem("user_email", email);
         envioEmail();
     } 
+    btnEmail.reset();
     });
+    
 
 function validarEmail(email) {
     const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
@@ -223,12 +311,16 @@ function emailInvalido(){
 
 const img = new Image();
 img.onload = function() {
-const myImage = document.getElementById('contenedor_imagen');
-myImage.src = img.src;
-}
-img.src = 'assets/img/imgprincipal.jpg'; // Cambia ‘url_de_tu_imagen.jpg’ con la URL de tu imagen
+  const myDiv = document.getElementById('contenedor_imagen');
+  myDiv.style.backgroundImage = `url(${img.src})`;
+  myDiv.style.backgroundAttachment = 'fixed';
+  myDiv.style.backgroundRepeat = "no-repeat";
+  myDiv.style.backgroundSize = "cover";
+  myDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.100), rgba(0, 0, 0, 0.400)), url(${img.src})`;
+};
+img.src = 'assets/img/imgprincipal.jpg';
 
-
+//CARRUSEL
 
 
 //PAG CONTACTO
@@ -449,6 +541,8 @@ document.getElementById('todos').addEventListener('click', () => cargarProductos
 document.getElementById('collares').addEventListener('click', () => cargarProductos('collares'));
 document.getElementById('pulseras').addEventListener('click', () => cargarProductos('pulseras'));
 document.getElementById('anillos').addEventListener('click', () => cargarProductos('anillos'));
+document.getElementById('carteras').addEventListener('click', () => cargarProductos('carteras'));
+document.getElementById('cinturones').addEventListener('click', () => cargarProductos('cinturones'));
 
 
 cargarProductos('todos');
@@ -476,107 +570,28 @@ function agregarAlCarrito(id){
     console.log(productosEnCarrito);
     
 }
-// function cargarProductosCarrito() {
-//     if (productosEnCarrito && productosEnCarrito.length > 0) {
 
-//         contenedorCarritoVacio.classList.add("disabled");
-//         contenedorCarritoProductos.classList.remove("disabled");
-//         contenedorCarritoAcciones.classList.remove("disabled");
-//         contenedorCarritoComprado.classList.add("disabled");
-    
-//         contenedorCarritoProductos.innerHTML = "";
-    
-//         productosEnCarrito.forEach(producto => {
-    
-//             const div = document.createElement("div");
-//             div.classList.add("carrito-producto");
-//             div.innerHTML = `
-//                 <img class="carrito-producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
-//                 <div class="carrito-producto-titulo">
-//                     <small>Título</small>
-//                     <h3>${producto.titulo}</h3>
-//                 </div>
-//                 <div class="carrito-producto-cantidad">
-//                     <small>Cantidad</small>
-//                     <p>${producto.cantidad}</p>
-//                 </div>
-//                 <div class="carrito-producto-precio">
-//                     <small>Precio</small>
-//                     <p>$${producto.precio}</p>
-//                 </div>
-//                 <div class="carrito-producto-subtotal">
-//                     <small>Subtotal</small>
-//                     <p>$${producto.precio * producto.cantidad}</p>
-//                 </div>
-//                 <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
-//             `;
-    
-//             contenedorCarritoProductos.append(div);
-//         })
-    
-//     actualizarBotonesEliminar();
-//     actualizarTotal();
-	
-//     } else {
-//         contenedorCarritoVacio.classList.remove("disabled");
-//         contenedorCarritoProductos.classList.add("disabled");
-//         contenedorCarritoAcciones.classList.add("disabled");
-//         contenedorCarritoComprado.classList.add("disabled");
-//     }
-
-// }
-
-// cargarProductosCarrito();
+function mostrarProcductosCarrito(){
+    localStorage.getItem(productosEnCarrito);
+    if(productosEnCarrito && productosEnCarrito.length > 0){
+        produCarrito.innerHTML = "";
+        productosEnCarrito.forEach(producto =>{
+            const div = document.createElement("div");
+            div.innerHTML = `
+            <article  id=${producto.id} class="box">
+            <img src=${producto.imagen} alt="imagen sobre ${producto.titulo}">
+            </article>
+            <div class="descripcion_producto">
+                <h2>${producto.titulo}</h2>
+                <p><i>$${producto.precio}</i></p>
+            </div>
+            `;
+            produCarrito.append(div);
+        })
+    }
+}
+console.log(mostrarProcductosCarrito())
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Obtén referencias a los elementos del DOM
-// const inputBusqueda = document.getElementById("inputBusqueda");
-// const botonBusqueda = document.getElementById("botonBusqueda");
-// const resultados = document.getElementById("resultados");
-
-// // Evento de clic en el botón de búsqueda
-// botonBusqueda.addEventListener("click", function() {
-//   buscar(inputBusqueda.value);
-// });
-
-// // Evento de presionar Enter en el campo de búsqueda
-// inputBusqueda.addEventListener("keydown", function(event) {
-//   if (event.key === "Enter") {
-//     buscar(inputBusqueda.value);
-//   }
-// });
-
-// // Función de búsqueda
-// function buscar(query) {
-//   // Puedes realizar la búsqueda en una fuente de datos o en una lista de elementos en tu página
-//   // Aquí un ejemplo simple con una lista de elementos
-//     catalogo = document.querySelector('.box_productos');
-
-
-//   // Limpiar resultados anteriores
-//   resultados.innerHTML = "";
-
-//   // Iterar a través de los elementos y mostrar los que coincidan con la búsqueda
-//   catalogo.forEach(elemento => {
-//     if (elemento.textContent.toLowerCase().includes(query.toLowerCase())) {
-//       resultados.appendChild(elemento.cloneNode(true));
-//     }
-//   });
-// }
 
