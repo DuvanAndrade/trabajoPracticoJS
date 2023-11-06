@@ -24,23 +24,25 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-
+    <!--  enlazando toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!--  enlazando css-->
-    <link rel="stylesheet" href="css/styles.css">
-    <!--  enlazando js-->
+    <link rel="stylesheet" href="../css/styles.css">
+     <!--  enlazando js-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script defer src="js/script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="../js/script.js"></script>
   </head>
   <body>
     <header>
       <section class="contenedor_encabezado">
         <div class="encabezado">
           <div class="buscador">
-            <form role="search">
-              <input class="buscador" type="search" placeholder="Buscar..." aria-label="Search">
-            </form>
+            <input type="text" id="inputBusqueda" placeholder="Buscar...">
+            <button id="botonBusqueda">Buscar</button>
           </div>
-
+          <div id="resultados"></div>
+          
           <div class="titulo list">
             <li >
               <a  href="index.html"><h1><i>aurora.</i></h1></a>
@@ -129,9 +131,26 @@
               </li>
               
               <li class="list redes" >
-                <a href="pages/carrito.html">Carrito <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16"> 
-                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg></a>                
+                <a href="pages/carrito.html">Carrito</a>   
+                <div class="container-cart-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="icon-cart"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                    />
+                  </svg>
+                  <div class="count-products">
+                    <span id="contador-productos">0</span>
+                  </div>
+                </div>             
               </li>
              
               
@@ -196,11 +215,11 @@
           <h1 >¡ÚNETE!</h1>
         </div>
         <div class="formulario_footer">
-          <form id="emailForm" >
-            <input class="input_footer" id="emailInput" type="email" id="mail" name="user_mail" placeholder="Email*"/>            
-            <button class="btn_enviar" type="submit">Enviar</button>
-          </form>
-        </div>       
+    <form id="emailForm">
+      <input class="input_footer" id="emailInput" type="email" name="user_mail" placeholder="Email*"/>            
+      <button class="btn_enviar" type="submit">Enviar</button>
+    </form>
+  </div>      
       </section>
         </footer>
 
