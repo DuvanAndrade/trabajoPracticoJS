@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <!--Enlazando boostrap-->
+    
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -27,22 +28,33 @@
     <!--  enlazando toastify-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!--  enlazando css-->
+<<<<<<< HEAD
     <link rel="stylesheet" href="../css/styles.css">
      <!--  enlazando js-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script defer src="../js/script.js"></script>
+=======
+    <link rel="stylesheet" href="css/styles.css">
+     <!--  enlazando js-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="js/script.js"></script>
+>>>>>>> 8a1c05abb03b5c4aebbdc3ae4367a4479d6491d3
   </head>
   <body>
     <header>
       <section class="contenedor_encabezado">
         <div class="encabezado">
+<<<<<<< HEAD
           <div class="buscador">
             <input type="text" id="inputBusqueda" placeholder="Buscar...">
             <button id="botonBusqueda">Buscar</button>
           </div>
           <div id="resultados"></div>
           
+=======
+>>>>>>> 8a1c05abb03b5c4aebbdc3ae4367a4479d6491d3
           <div class="titulo list">
             <li >
               <a  href="index.html"><h1><i>aurora.</i></h1></a>
@@ -73,7 +85,7 @@
                 <div class="modal_campo">
                   <div>
                     <h2>Iniciar Sesión</h2>
-                  <form class="form">
+                  <form class="form" id="formInicio">
                     <div >
                       <div class="campo_form">
                         <label for="nombreUsuario">Usuario:</label>
@@ -91,7 +103,7 @@
                   </div>
                   <div>
                     <h2>Registro de Nueva Cuenta</h2>
-                  <form class="form">
+                  <form class="form" id="formRegistro">
                     <div>
                       <div class="campo_form">
                         <label for="registroNombre">Usuario:</label>
@@ -161,14 +173,33 @@
 
     </header>
     <main>
-      
-        <img class="contenedor_imagen" id="contenedor_imagen" src="" alt="imagen principal"></img>
+      <section class="bg">
+        <div class="contenedor_imagen frase" id="contenedor_imagen"">
+          <h1 >LUCÍ BIEN,</h1>
+          <h2 >lucí aurora</h2>
+        </div>
+      </section>
+        
       
       
       <section>
         <h2>LO MÁS VENDIDO</h2>
       </section>
-      
+      <section class="bg_grilla">
+        <section class="container">
+        <div class=" row row-cols-2 grilla_img">
+          <img class="col p-0" src="assets/img/billetera-principal.jpeg" alt="">
+          <div class="col p-0 imgB img_frase">
+            <h2><u>CINTURONES DE PIEL</u></h2>
+          </div>
+          <div class="col p-0 imgC img_frase">
+            <h2><u>CINTURONES DE PIEL</u></h2>
+          </div>
+          <img class="col p-0 imgD" src="assets/img/cinturon-principal.jpeg" alt="">
+        </div>
+      </section> 
+      </section>
+           
 
     </main>
     <footer class="footer">
